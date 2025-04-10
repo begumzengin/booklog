@@ -38,7 +38,7 @@ export default function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
       <div className="w-full max-w-md p-8">
-        <h1 className="text-4xl font-mono mb-8 text-center">book.{isRegister ? 'register' : 'login'}()</h1>
+        <h1 className="text-4xl font-mono mb-8 text-center text-[#e6e6e6]">book.{isRegister ? 'register' : 'login'}()</h1>
         
         <form onSubmit={handleSubmit} className="space-y-4">
           {isRegister && (
@@ -49,7 +49,7 @@ export default function Login() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded font-mono"
+                className="w-full p-2 border border-gray-300 rounded font-mono focus:ring-2 focus:ring-[#454545] focus:outline-none"
                 required
               />
             </div>
@@ -62,7 +62,7 @@ export default function Login() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded font-mono"
+              className="w-full p-2 border border-gray-300 rounded font-mono text-[#252525] focus:ring-2 focus:ring-[#454545] focus:outline-none"
               required
             />
           </div>
@@ -74,7 +74,7 @@ export default function Login() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded font-mono"
+              className="w-full p-2 border border-gray-300 rounded font-mono text-[#252525] focus:ring-2 focus:ring-[#454545] focus:outline-none"
               required
             />
           </div>
@@ -85,7 +85,7 @@ export default function Login() {
           
           <button
             type="submit"
-            className="w-full bg-foreground text-background p-2 rounded font-mono hover:opacity-90"
+            className="w-full bg-foreground text-background p-2 rounded font-mono hover:opacity-90 mt-6"
           >
             {isRegister ? 'register' : 'login'}
           </button>

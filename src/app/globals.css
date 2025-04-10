@@ -76,18 +76,18 @@
 }
 
 :root {
-  --background: #f5f2ed;
-  --foreground: #171717;
-  --primary-gradient: linear-gradient(to right, #e66465, #9198e5);
-  --category-bg: #ffffff;
-  --category-hover: #f8f8f8;
-  --chat-bg: #ffffff;
+  --background: #252525;
+  --foreground: #e1d8cb;
+  --primary-gradient: linear-gradient(to right, #454545, #a7a39c);
+  --category-bg: #454545;
+  --category-hover: #a7a39c;
+  --chat-bg: #454545;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #252525;
+    --foreground: #e1d8cb;
   }
 }
 
