@@ -43,11 +43,11 @@ export function BookCard({ title, coverUrl, author, className, isLoading }: Book
         )}
       </CardContent>
       <CardFooter className="flex flex-col items-start space-y-1 p-4">
-        <h3 className="font-mono text-sm font-medium leading-none truncate w-full">
+        <h3 className="text-sm font-medium leading-none truncate w-full">
           {title}
         </h3>
         {author && (
-          <p className="font-mono text-xs text-gray-500 truncate w-full">{author}</p>
+          <p className="text-xs text-gray-500 truncate w-full">{author}</p>
         )}
       </CardFooter>
     </Card>

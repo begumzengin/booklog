@@ -17,7 +17,6 @@ export default function Profile() {
   return (
     <main className="flex min-h-screen">
       <div className="w-1/4 p-4 border-r border-gray-200">
-        <Logo />
         <Navbar />
       </div>
       <div className="w-3/4 p-8">

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { Navbar } from '@/app/components/navbar';
-import { Logo } from '@/app/components/logo';
 import { BookCard } from '@/app/components/ui/book-card';
 import { Skeleton } from '@/app/components/ui/skeleton';
 
@@ -39,7 +38,6 @@ export default function Home() {
         const data = await fetchWithRetry('https://openlibrary.org/search.json?q=popular&limit=8');
         const books = data.docs.slice(0, 8);
         
-        // Set all book data at once to ensure smooth transition
         await Promise.all([
           setCurrentBooks(books),
           setWatchFriendsBooks(books),
@@ -47,7 +45,6 @@ export default function Home() {
         ]);
       } catch (error) {
         console.error('Error fetching books:', error);
-        // Set empty arrays to prevent undefined errors
         setCurrentBooks([]);
         setWatchFriendsBooks([]);
         setExploreBooks([]);
@@ -61,7 +58,7 @@ export default function Home() {
 
   const BookGrid = ({ books, title, isLoading }: { books: Book[], title: string, isLoading: boolean }) => (
     <div className="mb-8">
-      <h2 className="text-xl font-mono mb-4">{title}</h2>
+      <h2 className="text-xl mb-4">{title}</h2>
       <div className="grid grid-cols-4 gap-4">
         {isLoading ? (
           Array.from({ length: 8 }).map((_, index) => (
@@ -89,11 +86,58 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen">
-      <div className="w-1/4 p-4 border-r border-gray-200 fixed h-screen overflow-y-auto">
-        <Logo />
+      <div className="w-1/4 p-4 border-r border-gray-200">
         <Navbar />
       </div>
-      <div className="w-3/4 p-8 ml-[25%]">
+      <div className="w-3/4 p-8">
+        <div className="flex items-center gap-4 mb-6">
+          <input type="text" placeholder="Search for books" className="search-bar" />
+          <button className="search-button">search</button>
+        </div>
+
+        <div className="grid grid-cols-10 gap-4 mb-8">
+          <div className="category-item">
+            <div className="category-icon">📚</div>
+            <span>All</span>
+          </div>
+          <div className="category-item">
+            <div className="category-icon">📱</div>
+            <span>eBooks</span>
+          </div>
+          <div className="category-item">
+            <div className="category-icon">🆕</div>
+            <span>New</span>
+          </div>
+          <div className="category-item">
+            <div className="category-icon">⭐</div>
+            <span>Bestsellers</span>
+          </div>
+          <div className="category-item">
+            <div className="category-icon">🎧</div>
+            <span>Audiobooks</span>
+          </div>
+          <div className="category-item">
+            <div className="category-icon">📖</div>
+            <span>Fiction</span>
+          </div>
+          <div className="category-item">
+            <div className="category-icon">💝</div>
+            <span>Romance</span>
+          </div>
+          <div className="category-item">
+            <div className="category-icon">🔮</div>
+            <span>Fantasy</span>
+          </div>
+          <div className="category-item">
+            <div className="category-icon">🎭</div>
+            <span>Manga</span>
+          </div>
+          <div className="category-item">
+            <div className="category-icon">🎮</div>
+            <span>Crime</span>
+          </div>
+        </div>
+
         <BookGrid books={currentBooks} title="book.current()" isLoading={isLoading} />
         <BookGrid books={watchFriendsBooks} title="book.watchFriends()" isLoading={isLoading} />
         <BookGrid books={exploreBooks} title="book.explore()" isLoading={isLoading} />

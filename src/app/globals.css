@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -77,11 +75,13 @@
   }
 }
 
-
-
 :root {
-  --background: #ffffff;
+  --background: #f5f2ed;
   --foreground: #171717;
+  --primary-gradient: linear-gradient(to right, #e66465, #9198e5);
+  --category-bg: #ffffff;
+  --category-hover: #f8f8f8;
+  --chat-bg: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -94,12 +94,66 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans);
+}
+
+* {
+  font-family: var(--font-geist-sans);
   text-transform: lowercase;
 }
 
+.category-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  background: var(--category-bg);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.category-item:hover {
+  background: var(--category-hover);
+  transform: translateY(-2px);
+}
+
+.search-bar {
+  background: white;
+  border-radius: 20px;
+  padding: 8px 16px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 0;
+}
+
+.search-button {
+  background: var(--primary-gradient);
+  color: white;
+  border-radius: 20px;
+  padding: 8px 24px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.search-button:hover {
+  opacity: 0.9;
+}
+
 .booklogLogo {
-    font-family: "Anonymous Pro", sans-serif;
+    font-family: var(--font-geist-sans);
     display: flex;
     flex-direction: column;
     justify-content: center;

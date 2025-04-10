@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { Navbar } from '@/app/components/navbar';
-import { Logo } from '@/app/components/logo';
 import { Card } from '@/app/components/ui/card';
 import { BarList, AreaChart, Title } from '@tremor/react';
 
@@ -33,11 +32,10 @@ const genreData = [
 export default function Analytics() {
   return (
     <main className="flex min-h-screen">
-      <div className="w-1/4 p-4 border-r border-gray-200 fixed h-screen overflow-y-auto">
-        <Logo />
+      <div className="w-1/4 p-4 border-r border-gray-200">
         <Navbar />
       </div>
-      <div className="w-3/4 p-8 ml-[25%]">
+      <div className="w-3/4 p-8">
         <h1 className="text-4xl font-mono mb-8">book.analytics()</h1>
         
         <div className="grid grid-cols-1 gap-8">
